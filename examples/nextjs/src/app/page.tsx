@@ -1,6 +1,7 @@
 import { Demo } from "@repo/shared";
 import { LandingPage } from "@repo/shared/dist/server";
 import type { ReactNode } from "react";
+import ProsemirrorMermaidDemo from "./prose-mermaid-demo";
 
 export const metadata = {
   title: "Prosemirror Mermaid",
@@ -10,7 +11,7 @@ export const metadata = {
 export default function Page(): ReactNode {
   return (
     <LandingPage title="Next.js Example">
-      <Demo />
+      <ProsemirrorMermaidDemo />
     </LandingPage>
   );
 }
