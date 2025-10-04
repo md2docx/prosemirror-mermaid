@@ -1,4 +1,3 @@
-import featured from "@repo/scripts/featured.json";
 import rebrandingConfig from "@repo/scripts/rebrand.config.json";
 import type { ReactNode } from "react";
 import { TypeOut } from "typingfx";
@@ -57,11 +56,6 @@ export function LandingPage({ title, children }: LandingPageProps) {
         </TypeOut>
       </div>
       {children}
-      <div className={styles.featured}>
-        <h2>Featured packages built with this template.</h2>
-        <hr />
-        <Cards cards={featured} />
-      </div>
       <Cards cards={cards} />
     </main>
   );
