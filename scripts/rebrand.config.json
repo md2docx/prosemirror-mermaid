@@ -2,5 +2,7 @@
   "packageName": "prosemirror-mermaid",
   "owner": "md2docx",
   "repo": "prosemirror-mermaid",
-  "title": "Prosemirror Mermaid"
+  "title": "Prosemirror Mermaid",
+  "removedPackages": ["examples/express", "packages/logger"],
+  "removedFeatures": ["Rebrander", "Docs", "Generators", "LiteMode"]
 }
