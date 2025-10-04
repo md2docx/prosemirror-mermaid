@@ -3,7 +3,7 @@
   "author": "Mayank Kumar Chaudhari (https:/mayank-chaudhari.vercel.app)",
   "private": false,
   "version": "0.0.0",
-  "description": "",
+  "description": "ProseMirror plugin for rendering Mermaid diagrams in code blocks. Extensible and wrappable as a Tiptap extension.",
   "license": "MPL-2.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -22,37 +22,10 @@
       "require": "./dist/index.js"
     },
     "./*": {
-      "types": [
-        "./dist/*",
-        "./dist/*/index.d.ts"
-      ],
-      "import": [
-        "./dist/*",
-        "./dist/*/index.mjs"
-      ],
-      "require": [
-        "./dist/*",
-        "./dist/*/index.js"
-      ]
-    },
-    "./dist/*": {
-      "types": [
-        "./dist/*",
-        "./dist/*/index.d.ts"
-      ],
-      "import": [
-        "./dist/*",
-        "./dist/*/index.mjs"
-      ],
-      "require": [
-        "./dist/*",
-        "./dist/*/index.js"
-      ]
-    },
-    "./*/index.css": "./dist/*/index.css",
-    "./dist/*/index.css": "./dist/*/index.css",
-    "./index.css": "./dist/index.css",
-    "./styles": "./dist/index.css"
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js"
+    }
   },
   "scripts": {
     "build": "tsup && tsc -p tsconfig-build.json && gzip -c dist/index.js | wc -c",
@@ -61,31 +34,29 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run --coverage"
   },
+  "dependencies": {
+    "@svg-fns/io": "^1.0.1",
+    "lowlight-mermaid": "^0.0.0",
+    "mermaid": "^11.12.0"
+  },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@testing-library/react": "^16.3.0",
-    "@types/node": "^24.5.0",
-    "@types/react": "^19.1.13",
-    "@types/react-dom": "^19.1.9",
-    "@vitejs/plugin-react": "^5.0.2",
+    "@types/node": "^24.6.2",
     "@vitest/coverage-v8": "^3.2.4",
     "esbuild-plugin-rdi": "^0.0.0",
-    "esbuild-plugin-react18": "0.2.6",
-    "esbuild-plugin-react18-css": "^0.0.4",
     "jsdom": "^27.0.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "prosemirror-model": "^1.18.3",
+    "prosemirror-state": "^1.4.3",
+    "prosemirror-view": "^1.28.2",
     "tsup": "^8.5.0",
-    "typescript": "^5.9.2",
+    "typescript": "^5.9.3",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
   },
-  "dependencies": {
-    "r18gs": "^3.0.1"
-  },
   "peerDependencies": {
-    "@types/react": ">=16.8",
-    "react": ">=16.8"
+    "prosemirror-model": "^1.18.3",
+    "prosemirror-state": "^1.4.3",
+    "prosemirror-view": "^1.28.2"
   },
   "funding": [
     {
@@ -98,23 +69,22 @@
     }
   ],
   "keywords": [
-    "React",
-    "React Loaders",
-    "React 18",
-    "React 19",
-    "Next.js",
-    "Next.js 14",
-    "Next.js 15",
-    "React server components",
-    "Customizable",
-    "Cutting-edge",
-    "Compatibility",
-    "Frontend development",
-    "UI components",
-    "Progressive",
-    "Web development",
-    "Modern",
-    "Seamless integration",
+    "prosemirror",
+    "tiptap",
+    "mermaid",
+    "markdown",
+    "code-block",
+    "plugin",
+    "diagram",
+    "svg",
+    "editor",
+    "visualization",
+    "frontend",
+    "ui",
+    "web",
+    "integration",
+    "modern",
+    "md2docx",
     "mayank1513"
   ]
 }
