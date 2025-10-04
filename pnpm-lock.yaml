@@ -71,7 +71,7 @@ importers:
         version: 1.0.10(@types/react@19.1.13)(r18gs@3.0.1(@types/react@19.1.13)(react@19.1.1))(react@19.1.1)
       nextjs-themes:
         specifier: ^4.0.6
-        version: 4.0.6(@types/react@19.1.13)(next@15.5.3(@babel/core@7.28.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(sass@1.92.1))(react@19.1.1)
+        version: 4.0.6(@types/react@19.1.13)(next@15.5.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(sass@1.92.1))(react@19.1.1)
       prosemirror-mermaid:
         specifier: workspace:*
         version: link:../../lib
@@ -226,7 +226,7 @@ importers:
         version: 1.0.10(@types/react@19.1.13)(react@19.1.1)
       nextjs-themes:
         specifier: ^4.0.6
-        version: 4.0.6(@types/react@19.1.13)(next@15.5.3(@babel/core@7.28.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(sass@1.92.1))(react@19.1.1)
+        version: 4.0.6(@types/react@19.1.13)(next@15.5.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(sass@1.92.1))(react@19.1.1)
       prosemirror-mermaid:
         specifier: workspace:*
         version: link:../../lib
@@ -6591,7 +6591,7 @@ snapshots:
       r18gs: 3.0.1(@types/react@19.1.13)(react@19.1.1)
       react: 19.1.1
 
-  nextjs-themes@4.0.6(@types/react@19.1.13)(next@15.5.3(@babel/core@7.28.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(sass@1.92.1))(react@19.1.1):
+  nextjs-themes@4.0.6(@types/react@19.1.13)(next@15.5.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(sass@1.92.1))(react@19.1.1):
     dependencies:
       '@types/react': 19.1.13
       r18gs: 3.0.1(@types/react@19.1.13)(react@19.1.1)
