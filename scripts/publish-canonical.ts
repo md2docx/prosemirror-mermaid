@@ -8,7 +8,10 @@ if (process.env.NODE_AUTH_TOKEN) {
 }
 
 // Publish canonical packages
-const canonicals: string[] = [];
+const canonicals: string[] = [
+  "prosemirror-mermaid-block",
+  "mermaid-prosemirror",
+];
 
 canonicals.forEach((pkg) => {
   try {
