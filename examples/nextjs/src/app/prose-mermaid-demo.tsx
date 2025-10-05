@@ -42,6 +42,23 @@ export default function ProsemirrorMermaidDemo() {
       Document,
       Paragraph,
       CodeBlockLowlight.configure({ lowlight }).extend({
+        addAttributes() {
+          const parentAttrs = this.parent?.() ?? {};
+
+          return {
+            ...parentAttrs,
+            id: {
+              default: null,
+              parseHTML: (element) =>
+                element.getAttribute("data-id") ||
+                `m${crypto.randomUUID().slice(0, 8)}`,
+              renderHTML: (attributes) => {
+                if (!attributes.id) return {};
+                return { "data-id": attributes.id };
+              },
+            },
+          };
+        },
         addProseMirrorPlugins() {
           return [
             ...(this.parent?.() || []),
