@@ -135,6 +135,7 @@ export const mermaidPlugin = ({
           const id = node.attrs.id;
 
           const container = renderCache.get(id) ?? createContainer();
+          renderCache.set(id, container);
 
           decorationsList.push(
             Decoration.widget(pos + node.nodeSize - 1, container, { side: 1 }),
@@ -154,25 +155,23 @@ export const mermaidPlugin = ({
           const timer = setTimeout(async () => {
             try {
               const { svg } = await mermaid.render(id, code);
-              container.textContent = "";
               const svgEl = parseSvg(svg);
               container.appendChild(svgEl);
               tightlyCropSvg(svgEl);
               container.classList.remove("error");
             } catch (err) {
               console.error(err);
-              container.textContent =
-                "Mermaid render error: " +
-                (err instanceof Error ? err.message : String(err));
-              container.classList.add("error");
+              const errorEl = document.createElement("p");
+              const errMessage =
+                err instanceof Error ? err.message : String(err);
+              errorEl.innerHTML = `<small style="color:red">Mermaid render error: ${errMessage}</small>`;
+              container.appendChild(errorEl);
             } finally {
               debounceTimers.delete(id);
             }
           }, debounce);
 
           debounceTimers.set(id, timer);
-
-          renderCache.set(id, container);
         });
 
         return DecorationSet.create(state.doc, decorationsList);
