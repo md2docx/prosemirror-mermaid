@@ -1,7 +1,6 @@
 # Prosemirror Mermaid <img src="https://raw.githubusercontent.com/mayank1513/mayank1513/main/popper.png" style="height: 40px"/>
 
 [![test](https://github.com/md2docx/prosemirror-mermaid/actions/workflows/test.yml/badge.svg)](https://github.com/md2docx/prosemirror-mermaid/actions/workflows/test.yml)
-[![Maintainability](https://qlty.sh/gh/md2docx/projects/prosemirror-mermaid/maintainability.svg)](https://qlty.sh/gh/md2docx/projects/prosemirror-mermaid)
 [![codecov](https://codecov.io/gh/md2docx/prosemirror-mermaid/graph/badge.svg)](https://codecov.io/gh/md2docx/prosemirror-mermaid)
 [![Version](https://img.shields.io/npm/v/prosemirror-mermaid.svg?colorB=green)](https://www.npmjs.com/package/prosemirror-mermaid)
 [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/d18m/prosemirror-mermaid.svg)](https://www.npmjs.com/package/prosemirror-mermaid)
