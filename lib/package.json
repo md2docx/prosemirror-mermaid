@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@svg-fns/io": "^1.0.1",
+    "@svg-fns/layout": "^0.1.0",
     "lowlight-mermaid": "^0.0.0",
     "mermaid": "^11.12.0"
   },

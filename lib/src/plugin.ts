@@ -14,6 +14,7 @@
  */
 
 import { parseSvg } from "@svg-fns/io";
+import { tightlyCropSvg } from "@svg-fns/layout";
 import type { createLowlight } from "lowlight";
 import { mermaidGrammar } from "lowlight-mermaid";
 import mermaid, { type MermaidConfig } from "mermaid";
@@ -41,7 +42,14 @@ export interface MermaidPluginOptions {
    */
   debounce?: number;
 
+  /**
+   * Configuration options for the mermaid library.
+   */
   mermaidConfig?: MermaidConfig;
+  /**
+   * CSS classes to apply to the container
+   */
+  classList: string[] | string;
 }
 
 /**
@@ -80,6 +88,7 @@ export const mermaidPlugin = ({
   lowlight,
   debounce = 300,
   mermaidConfig,
+  classList,
 }: MermaidPluginOptions): Plugin => {
   if (lowlight) {
     lowlight.register({ mermaid: mermaidGrammar });
@@ -96,6 +105,14 @@ export const mermaidPlugin = ({
   const codeCache = new Map<string, string>();
   const renderCache = new Map<string, HTMLDivElement>();
   const debounceTimers = new Map<string, ReturnType<typeof setTimeout>>();
+
+  const createContainer = () => {
+    const container = document.createElement("div");
+    container.classList.add(
+      ...(Array.isArray(classList) ? classList : [classList]),
+    );
+    return container;
+  };
 
   return new Plugin({
     key: new PluginKey("mermaid"),
@@ -117,11 +134,10 @@ export const mermaidPlugin = ({
 
           const id = node.attrs.id;
 
-          const container =
-            renderCache.get(id) ?? document.createElement("div");
+          const container = renderCache.get(id) ?? createContainer();
 
           decorationsList.push(
-            Decoration.widget(pos + 1, container, { side: 1 }),
+            Decoration.widget(pos + node.nodeSize - 1, container, { side: 1 }),
           );
 
           // no change
@@ -139,7 +155,9 @@ export const mermaidPlugin = ({
             try {
               const { svg } = await mermaid.render(id, code);
               container.textContent = "";
-              container.appendChild(parseSvg(svg));
+              const svgEl = parseSvg(svg);
+              container.appendChild(svgEl);
+              tightlyCropSvg(svgEl);
               container.classList.remove("error");
             } catch (err) {
               console.error(err);

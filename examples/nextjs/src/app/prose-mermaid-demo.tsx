@@ -48,7 +48,7 @@ export default function ProsemirrorMermaidDemo() {
           return {
             ...parentAttrs,
             id: {
-              default: null,
+              default: () => `m${crypto.randomUUID().slice(0, 8)}`,
               parseHTML: (element) =>
                 element.getAttribute("data-id") ||
                 `m${crypto.randomUUID().slice(0, 8)}`,
@@ -65,6 +65,7 @@ export default function ProsemirrorMermaidDemo() {
             mermaidPlugin({
               name: this.name,
               lowlight: this.options.lowlight,
+              classList: "mermaid",
             }),
           ];
         },
